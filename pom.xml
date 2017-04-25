@@ -66,4 +66,16 @@
 		<module>demo-model</module>
 		<module>demo-persist</module>
 	</modules>
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profileActive>dev</profileActive>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
 </project>
