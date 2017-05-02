@@ -8,6 +8,8 @@
 	<artifactId>demo-persist</artifactId>
 	<name>Demo Persist</name>
 	<description>Demo Persist With Mybatis</description>
+	<packaging>jar</packaging>
+	
   	<dependencies>
     	<dependency>
     		<groupId>com.example</groupId>
