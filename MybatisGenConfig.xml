@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <classPathEntry location="C:\Program Files (x86)\MySQL\Connector.J 5.1\mysql-connector-java-5.1.38-bin.jar"/>
+  <classPathEntry location="C:\Users\caizj\.m2\repository\mysql\mysql-connector-java\5.1.41\mysql-connector-java-5.1.41.jar"/>
   <context id="context1"  >
   
   	<property name="javaFileEncoding" value="utf-8"/>
@@ -11,9 +11,9 @@
   	<plugin type="org.mybatis.generator.plugins.LogicallyDeletePlugin"></plugin>
   
     <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
-    connectionURL="jdbc:mysql://192.168.0.247:3306/year?useUnicode=true&amp;amp;characterEncoding=utf-8" 
-    userId="root" 
-    password="root" >
+    connectionURL="jdbc:mysql://192.168.1.19:3306/demo?useUnicode=true&amp;amp;characterEncoding=utf-8" 
+    userId="ibaixiong" 
+    password="1234567890" >
     </jdbcConnection>
     
     <javaModelGenerator targetPackage="com.example.model" targetProject="demo-model">
@@ -33,7 +33,7 @@
     enableSelectByExample="false" enableDeleteByPrimaryKey="false"  enableUpdateByPrimaryKey="false">
     	<property name="superClass" value="Page"/>
     </table> -->
-    <table tableName="message"   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+    <table tableName="demo"   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
     enableSelectByExample="false" enableDeleteByPrimaryKey="false"  enableUpdateByPrimaryKey="false">
     </table>
   </context>
