@@ -14,23 +14,23 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class DemoControllerTests {
 
 	@Autowired
-    private MockMvc mvc;
-	
+	private MockMvc mvc;
+
 	@Autowired
 	private TestRestTemplate restTemplate;
-	
+
 	@Test
 	public void contextLoads() {
-		
+
 	}
-	
+
 	@Test
-	public void helloR() throws Exception{
+	public void helloR() throws Exception {
 		String url = "/demo/hello";
 		MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
 		map.add("name", "cai");

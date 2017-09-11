@@ -22,54 +22,52 @@ import com.github.pagehelper.Page;
 public class DemoController {
 
 	Logger log = Logger.getLogger(this.getClass());
-	
+
 	@Autowired
 	DemoSevice demoSevice;
-	
-    @RequestMapping("/hello")
+
+	@RequestMapping("/hello")
 	public Object hello(String name, Long uId) {
-    	if(name == null) name = "World";
-    	
-    	
-    	log.info("Hello, " + name + "!");
+		if (name == null)
+			name = "World";
+
+		log.info("Hello, " + name + "!");
 		demoSevice.newRecord(name);
-		
+
 		ResultEntity result = new ResultEntity();
 		result.setCodeAndMsg(ErrorCode.SUCCESS);
 		result.put("msg", "Hello, " + name + "!");
 		return result;
 	}
-    
-    @RequestMapping("/records")
-    public Object records(Integer pageIndex, Integer pageSize) {
-    	ResultEntity result = new ResultEntity();
-    	if(ParamUtils.examineOneNull(pageIndex, pageSize))
-    	{
+
+	@RequestMapping("/records")
+	public Object records(Integer pageIndex, Integer pageSize) {
+		ResultEntity result = new ResultEntity();
+		if (ParamUtils.examineOneNull(pageIndex, pageSize)) {
 			result.setCode(ErrorCode.ERROR_PARAM_INCOMPLETE.getCode());
 			result.setMsg(ErrorCode.ERROR_PARAM_INCOMPLETE.getMessage());
 			return result;
 		}
-    	
-    	List<DemoDTO> recordDTOs = new ArrayList<DemoDTO>();
-    	try{
-    		Page<Demo> records = demoSevice.obtainRecord(pageIndex, pageSize);
-    		for(Demo r : records)
-    		{
-    			DemoDTO recordDTO = new DemoDTO();
-    			BeanUtils.copyProperties(r, recordDTO);
-    			
-    			recordDTOs.add(recordDTO);
-    		}
-    	}catch (Exception e) {
-    		result.setCode(ErrorCode.SUCCESS.getCode());
-    		result.setMsg(ErrorCode.SUCCESS.getMessage());
-    		return result;
+
+		List<DemoDTO> recordDTOs = new ArrayList<DemoDTO>();
+		try {
+			Page<Demo> records = demoSevice.obtainRecord(pageIndex, pageSize);
+			for (Demo r : records) {
+				DemoDTO recordDTO = new DemoDTO();
+				BeanUtils.copyProperties(r, recordDTO);
+
+				recordDTOs.add(recordDTO);
+			}
+		} catch (Exception e) {
+			result.setCode(ErrorCode.SUCCESS.getCode());
+			result.setMsg(ErrorCode.SUCCESS.getMessage());
+			return result;
 		}
-    	
-    	result.put("records", recordDTOs);
-    	result.setCode(ErrorCode.SUCCESS.getCode());
+
+		result.put("records", recordDTOs);
+		result.setCode(ErrorCode.SUCCESS.getCode());
 		result.setMsg(ErrorCode.SUCCESS.getMessage());
 		return result;
-    }
+	}
 
 }
